@@ -8,8 +8,8 @@ class DataService {
     this.data = dataset;
   }
 
-  async getData() {
-    console.log(this.data);
+  async getData(): Promise<TreeNode[]> {
+    return this.data;
   }
 }
 
