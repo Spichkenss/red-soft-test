@@ -4,7 +4,13 @@ import AuthController from "../fake-server/src/auth/auth.controller.ts";
 function App() {
 
   const handleLogin = async () => {
-    await AuthController.login()
+    try {
+      const user = await AuthController.login({login: "admin", password: "admin"});
+      console.log(user);
+    } catch (e) {
+      console.log(e);
+    }
+
   }
 
   return (
