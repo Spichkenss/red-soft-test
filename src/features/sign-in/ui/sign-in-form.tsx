@@ -1,6 +1,8 @@
 import {FormEventHandler} from "react";
 import {useForm} from "../../../shared/lib/hooks";
 import AuthController from "../../../../fake-server/src/auth/auth.controller";
+import {Input} from "../../../shared/ui/input";
+import styles from './sign-in-form.module.scss'
 
 
 interface SignInFormState {
@@ -26,11 +28,11 @@ export const SignInForm = () => {
   const {form, register} = useForm<SignInFormState>(signInFormInitialState);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor={'login'}>login</label>
-      <input type="text" {...register('login')} />
-      <label htmlFor={'password'}>password</label>
-      <input type="password" {...register('password')} />
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <label htmlFor={'login'}>Login</label>
+      <Input type="text" {...register('login')} />
+      <label htmlFor={'password'}>Password</label>
+      <Input type="password" {...register('password')} />
       <button type={'submit'}>Submit</button>
     </form>
   )
