@@ -1,4 +1,6 @@
 import {useAuth} from "@/app/config/auth/model/auth-context";
+import {Button} from "@/shared/ui/button";
+import styles from './logout-button.module.scss'
 
 export const LogoutButton = () => {
   const {setToken} = useAuth();
@@ -8,8 +10,8 @@ export const LogoutButton = () => {
   }
 
   return (
-    <button onClick={handleLogout}>
+    <Button onClick={handleLogout} className={styles.logout__btn}>
       Logout
-    </button>
+    </Button>
   )
 }

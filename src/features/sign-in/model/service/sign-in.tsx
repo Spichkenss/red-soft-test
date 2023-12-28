@@ -3,9 +3,12 @@ import toast from "react-hot-toast";
 import {SignInCredentials} from "@/features/sign-in/model/types/sign-in.types";
 
 export const login = async (credentials: SignInCredentials) => {
-  try {
-    return await AuthController.login(credentials);
-  } catch (e: any) {
-    toast.error(e.message)
-  }
+  return await toast.promise(
+    AuthController.login(credentials),
+    {
+      loading: 'Signing in...',
+      success: <b>Signed in</b>,
+      error: <b>Sign in error</b>,
+    }
+  );
 }
