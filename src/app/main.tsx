@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import App from "./app";
 
 import './config/style/index.css'
@@ -15,7 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         reverseOrder={false}
       />
       <AuthProvider>
-        <App/>
+        <Routes>
+          <Route path={'/*'} element={<App/>}/>
+        </Routes>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,

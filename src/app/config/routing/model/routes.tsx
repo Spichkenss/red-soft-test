@@ -1,8 +1,9 @@
 import {RouteProps} from "react-router-dom";
-import HomePage from "@/pages/home/ui/home-page";
-import SignInPage from "@/pages/sign-in/ui/sign-in-page";
-import BrowsePage from "@/pages/browse/ui/browse-page";
-import NotFoundPage from "@/pages/not-found/ui/not-found-page";
+import {HomePage} from "@/pages/home";
+import {SignInPage} from "@/pages/sign-in";
+import {BrowsePage} from "@/pages/browse";
+import {NotFoundPage} from "@/pages/not-found";
+
 
 enum AppRoutes {
   HOME = "home",
@@ -18,9 +19,18 @@ export const RoutePaths: Record<AppRoutes, string> = {
   [AppRoutes.NOT_FOUND]: "*"
 };
 
-export const routes: Record<AppRoutes, RouteProps> = {
-  [AppRoutes.HOME]: {path: RoutePaths["home"], element: <HomePage/>},
-  [AppRoutes.SIGN_IN]: {path: RoutePaths["sign-in"], element: <SignInPage/>},
-  [AppRoutes.BROWSE]: {path: RoutePaths["browse"], element: <BrowsePage/>},
+export enum AuthAccessType {
+  ANONYMOUS, PROTECTED
+}
+
+type RoutePropsWithAuthAccessType = RouteProps & {
+  access?: AuthAccessType
+};
+
+
+export const routes: Record<AppRoutes, RoutePropsWithAuthAccessType> = {
+  [AppRoutes.HOME]: {path: RoutePaths["home"], element: <HomePage/>, access: AuthAccessType.ANONYMOUS},
+  [AppRoutes.SIGN_IN]: {path: RoutePaths["sign-in"], element: <SignInPage/>, access: AuthAccessType.ANONYMOUS},
+  [AppRoutes.BROWSE]: {path: RoutePaths["browse"], element: <BrowsePage/>, access: AuthAccessType.PROTECTED},
   [AppRoutes.NOT_FOUND]: {path: RoutePaths['not_found'], element: <NotFoundPage/>}
 };

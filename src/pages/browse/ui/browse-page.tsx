@@ -1,7 +1,5 @@
-import {withAuth} from "@/shared/lib/hocs";
-
 const BrowsePage = () => {
-  return <div>browse</div>
+  return <div>Browse</div>
 }
 
-export default withAuth(BrowsePage)
+export default BrowsePage

@@ -1,13 +1,16 @@
 import {LogoutButton} from "@/features/logout";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {RoutePaths} from "@/app/config/routing/model/routes";
-import {useAuth} from "@/app/config/auth/model/auth-context";
 import styles from './navbar.module.scss'
+import {Button} from "@/shared/ui/button";
+import {SignedIn, SignedOut} from "@/shared/lib/containers/auth";
 
 export const Navbar = () => {
-  const {token} = useAuth();
+  const navigate = useNavigate();
 
-  if (!token) return null;
+  const goToBrowsePage = () => {
+    navigate(RoutePaths.browse)
+  }
 
   return (
     <header className={styles.navbar}>
@@ -15,7 +18,14 @@ export const Navbar = () => {
         <NavLink to={RoutePaths.home}>Home</NavLink>
         <NavLink to={RoutePaths.browse}>Browse</NavLink>
       </nav>
-      <LogoutButton />
+      <SignedIn>
+        <LogoutButton />
+      </SignedIn>
+      <SignedOut>
+        <Button onClick={goToBrowsePage}>
+          Sign in
+        </Button>
+      </SignedOut>
     </header>
   )
 }

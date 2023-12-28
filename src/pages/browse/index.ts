@@ -1,1 +1,1 @@
-export {BrowsePage} from './ui/browse-page'
+export {BrowsePage} from './ui/browse-page.async'

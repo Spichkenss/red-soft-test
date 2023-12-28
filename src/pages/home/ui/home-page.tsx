@@ -1,11 +1,9 @@
-import {withAuth} from "@/shared/lib/hocs";
-
 const HomePage = () => {
   return (
     <div>
-      <span>home</span>
+      Home
     </div>
   )
 }
 
-export default withAuth(HomePage);
+export default HomePage;
