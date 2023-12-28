@@ -1,9 +1,8 @@
 import {FormEventHandler} from "react";
-import {useForm} from "../../../shared/lib/hooks";
 import AuthController from "../../../../fake-server/src/auth/auth.controller";
-import {Input} from "../../../shared/ui/input";
+import {Input} from "@/shared/ui/input";
+import {useForm} from "@/shared/lib/hooks";
 import styles from './sign-in-form.module.scss'
-
 
 interface SignInFormState {
   login: string;

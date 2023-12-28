@@ -1,4 +1,5 @@
-import AuthController from "../../../../../fake-server/src/auth/auth.controller";
+import AuthController from "@/fake-server/src/auth/auth.controller";
+
 
 export const login = async () => {
   try {
