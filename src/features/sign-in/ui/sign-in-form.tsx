@@ -3,6 +3,7 @@ import AuthController from "../../../../fake-server/src/auth/auth.controller";
 import {Input} from "@/shared/ui/input";
 import {useForm} from "@/shared/lib/hooks";
 import styles from './sign-in-form.module.scss'
+import {Button} from "@/shared/ui/button";
 
 interface SignInFormState {
   login: string;
@@ -32,7 +33,7 @@ export const SignInForm = () => {
       <Input type="text" {...register('login')} />
       <label htmlFor={'password'}>Password</label>
       <Input type="password" {...register('password')} />
-      <button type={'submit'}>Submit</button>
+      <Button type={'submit'}>Submit</Button>
     </form>
   )
 }
