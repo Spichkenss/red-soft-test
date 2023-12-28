@@ -1,5 +1,7 @@
-import {User, users} from "../../lib/db/users.ts";
-import {LoginDto} from "./types/login.dto.ts";
+import {User, users} from "@fake-server/lib/db/users";
+import {LoginDto, LoginResponse} from "@fake-server/src/auth/types/login.dto";
+import {createId} from "@paralleldrive/cuid2";
+
 
 class AuthService {
   private readonly userRepository: User[];
@@ -8,7 +10,7 @@ class AuthService {
     this.userRepository = users;
   }
 
-  async login(credentials: LoginDto): Promise<User> {
+  async login(credentials: LoginDto): Promise<LoginResponse> {
     const {login, password} = credentials;
 
     const foundUser = this.userRepository.find(user => user.login === login);
@@ -21,7 +23,7 @@ class AuthService {
       throw new Error("Wrong password!");
     }
 
-    return foundUser;
+    return { user: foundUser, token: createId() };
   }
 }
 

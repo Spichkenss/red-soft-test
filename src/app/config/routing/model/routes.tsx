@@ -1,9 +1,8 @@
 import {RouteProps} from "react-router-dom";
-import {HomePage} from "@/pages/home";
-import {SignInPage} from "@/pages/sign-in";
-import {BrowsePage} from "@/pages/browse";
-import {NotFoundPage} from "@/pages/not-found";
-
+import HomePage from "@/pages/home/ui/home-page";
+import SignInPage from "@/pages/sign-in/ui/sign-in-page";
+import BrowsePage from "@/pages/browse/ui/browse-page";
+import NotFoundPage from "@/pages/not-found/ui/not-found-page";
 
 enum AppRoutes {
   HOME = "home",

@@ -28,6 +28,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@fake-server/*": [
+        "./fake-server/*"
       ]
     }
   },

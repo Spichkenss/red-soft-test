@@ -1,31 +1,30 @@
 import {FormEventHandler} from "react";
-import AuthController from "../../../../fake-server/src/auth/auth.controller";
 import {Input} from "@/shared/ui/input";
 import {useForm} from "@/shared/lib/hooks";
 import styles from './sign-in-form.module.scss'
 import {Button} from "@/shared/ui/button";
+import {login} from "@/features/sign-in/model/service/sign-in";
+import {SignInCredentials} from "../model/types/sign-in.types";
+import {useAuth} from "@/app/config/auth/model/auth-context";
 
-interface SignInFormState {
-  login: string;
-  password: string;
-}
 
-const signInFormInitialState: SignInFormState = {
+const signInFormInitialState: SignInCredentials = {
   login: '',
   password: ''
 }
 
 export const SignInForm = () => {
+  const { setToken } = useAuth();
+
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
-    try {
-      await AuthController.login({...form});
-    } catch (e) {
-      console.log(e);
+    const res = await login(form);
+    if (res) {
+      setToken(res.token)
     }
   }
 
-  const {form, register} = useForm<SignInFormState>(signInFormInitialState);
+  const {form, register} = useForm<SignInCredentials>(signInFormInitialState);
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>

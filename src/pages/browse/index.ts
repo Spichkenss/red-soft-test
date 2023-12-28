@@ -1,1 +1,1 @@
-export {BrowsePage} from './ui/BrowsePage'
+export {BrowsePage} from './ui/browse-page'

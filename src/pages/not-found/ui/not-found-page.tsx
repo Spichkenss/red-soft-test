@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
-import styles from './NotFoundPage.module.scss'
+import styles from './not-found-page.module.scss'
 
-export const NotFoundPage = () => {
+const NotFoundPage = () => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -15,3 +15,5 @@ export const NotFoundPage = () => {
     </div>
   )
 }
+
+export default NotFoundPage;

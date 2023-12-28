@@ -1,7 +1,6 @@
-import AuthService from "./auth.service.ts";
-import {SleepDecorator} from "../../lib/decorators/sleep.ts";
-import {LoginDto} from "./types/login.dto.ts";
-import {User} from "../../lib/db/users.ts";
+import AuthService from "./auth.service";
+import {LoginDto, LoginResponse} from "./types/login.dto";
+import {SleepDecorator} from "@fake-server/lib/decorators/sleep";
 
 
 class AuthController {
@@ -9,7 +8,7 @@ class AuthController {
   }
 
   @SleepDecorator(2000)
-  async login(loginDto: Required<LoginDto>): Promise<User> {
+  async login(loginDto: Required<LoginDto>): Promise<LoginResponse> {
     return this.authService.login(loginDto);
   }
 }
