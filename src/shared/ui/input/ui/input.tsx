@@ -6,7 +6,7 @@ import {cn} from "../../../lib/cn";
 interface InputProps extends ComponentProps<'input'> {
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({className = '', ...rest}: InputProps, ref) => {
 
     return (
@@ -20,5 +20,3 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = "Input";
-
-export default Input

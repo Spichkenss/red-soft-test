@@ -4,7 +4,7 @@ import {Button} from "@/shared/ui/button";
 import {login} from "@/features/sign-in/model/service/sign-in";
 import {SignInCredentials} from "../model/types/sign-in.types";
 import {useAuth} from "@/app/config/auth/model/auth-context";
-import Input from "@/shared/ui/input/ui/input";
+import {Input} from "@/shared/ui/input/ui/input";
 
 
 const signInFormInitialState: SignInCredentials = {
