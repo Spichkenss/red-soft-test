@@ -20,7 +20,9 @@ export const RoutePaths: Record<AppRoutes, string> = {
 };
 
 export enum AuthAccessType {
-  ANONYMOUS, PROTECTED
+  PUBLIC,
+  UNAUTH,
+  PROTECTED
 }
 
 type RoutePropsWithAuthAccessType = RouteProps & {
@@ -29,8 +31,8 @@ type RoutePropsWithAuthAccessType = RouteProps & {
 
 
 export const routes: Record<AppRoutes, RoutePropsWithAuthAccessType> = {
-  [AppRoutes.HOME]: {path: RoutePaths["home"], element: <HomePage/>, access: AuthAccessType.ANONYMOUS},
-  [AppRoutes.SIGN_IN]: {path: RoutePaths["sign-in"], element: <SignInPage/>, access: AuthAccessType.ANONYMOUS},
+  [AppRoutes.HOME]: {path: RoutePaths["home"], element: <HomePage/>, access: AuthAccessType.PUBLIC},
+  [AppRoutes.SIGN_IN]: {path: RoutePaths["sign-in"], element: <SignInPage/>, access: AuthAccessType.UNAUTH},
   [AppRoutes.BROWSE]: {path: RoutePaths["browse"], element: <BrowsePage/>, access: AuthAccessType.PROTECTED},
-  [AppRoutes.NOT_FOUND]: {path: RoutePaths['not_found'], element: <NotFoundPage/>}
+  [AppRoutes.NOT_FOUND]: {path: RoutePaths['not_found'], element: <NotFoundPage/>, access: AuthAccessType.PUBLIC}
 };
