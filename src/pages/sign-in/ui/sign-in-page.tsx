@@ -3,7 +3,7 @@ import styles from './sign-in-page.module.scss'
 
 const SignInPage = () => {
   return (
-    <div>
+    <div className={'center'}>
       <h1 className={styles.title}>Sign in</h1>
       <SignInForm/>
     </div>

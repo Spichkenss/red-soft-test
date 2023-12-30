@@ -1,13 +1,14 @@
 import {Navbar} from "@/widgets/navbar";
 import {Outlet} from "react-router-dom";
 import {Suspense} from "react";
+import {PageLoader} from "@/widgets/page-loader";
 
-export const Layout = () => {
+export const RootLayout = () => {
   return (
     <>
       <Navbar/>
-      <main>
-        <Suspense fallback={'loading...'}>
+      <main className={'main'}>
+        <Suspense fallback={<PageLoader/>}>
           <Outlet/>
         </Suspense>
       </main>

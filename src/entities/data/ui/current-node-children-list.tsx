@@ -1,5 +1,6 @@
 import {useDataTreeView} from "@/entities/data";
 
+
 export const CurrentNodeChildrenList = () => {
   const {currentNode} = useDataTreeView();
 
@@ -9,7 +10,7 @@ export const CurrentNodeChildrenList = () => {
     <ul>
       {
         currentNode?.children?.map(child => (
-          <li>
+          <li key={child.key}>
             {child.name}
           </li>
         ))

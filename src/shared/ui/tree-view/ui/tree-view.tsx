@@ -8,7 +8,7 @@ interface TreeViewProps<T> {
 export const TreeView = <T,>({data, renderItem}: TreeViewProps<T>) => {
   return (
     <ul>
-      {data?.map(item => <li>{renderItem(item)}</li>)}
+      {data?.map((item) => renderItem(item))}
     </ul>
   )
 }

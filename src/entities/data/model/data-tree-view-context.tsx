@@ -9,13 +9,17 @@ interface DataTreeViewContextValue {
 
 const DataTreeViewContext = createContext<DataTreeViewContextValue | null>(null);
 
+const initialNode: TreeNode = {name: '', key: '', children: []};
+
 interface DataTreeViewContextProviderProps extends PropsWithChildren {}
 
 export const DataTreeViewContextProvider = ({children}: DataTreeViewContextProviderProps) => {
-  const [currentNode, setCurrentNode] = useState<TreeNode | null>(null);
+  const [currentNode, setCurrentNode] = useState<TreeNode>(initialNode);
 
   useEffect(() => {
-    getData().then(res => setCurrentNode(res[0]))
+    getData().then(res => {
+      setCurrentNode(res[0])
+    })
   }, []);
 
   const memoizedContextValue = useMemo(() => (

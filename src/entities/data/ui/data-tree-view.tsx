@@ -6,11 +6,10 @@ import {TreeViewItem} from "@/shared/ui/tree-view/ui/tree-view-item";
 
 function filterNodesWithChildren(node: TreeNode) {
   if (node.children && node.children.length > 0) {
-    // Если у узла есть дочерние элементы, фильтруем их тоже
     node.children = node.children.filter(filterNodesWithChildren);
-    return true; // Сохраняем узел, так как у него есть дочерние элементы
+    return true;
   } else {
-    return false; // Фильтруем узлы без дочерних элементов
+    return false;
   }
 }
 
