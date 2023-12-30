@@ -22,5 +22,4 @@ export const useFetch = <T,>(promise: () => Promise<T>) => {
   }, [promise]);
 
   return {response, isLoading, error}
-
 }

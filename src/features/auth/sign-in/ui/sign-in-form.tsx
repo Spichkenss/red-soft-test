@@ -1,10 +1,10 @@
 import {ChangeEventHandler, FormEventHandler, useCallback, useState} from "react";
 import styles from './sign-in-form.module.scss'
 import {Button} from "@/shared/ui/button";
-import {login} from "@/features/sign-in/model/service/sign-in";
 import {SignInCredentials} from "../model/types/sign-in.types";
 import {useAuth} from "@/app/config/auth/model/auth-context";
 import {Input} from "@/shared/ui/input/ui/input";
+import {login} from "@/features/auth/sign-in/model/service/sign-in";
 
 
 const signInFormInitialState: SignInCredentials = {
@@ -35,9 +35,9 @@ export const SignInForm = () => {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <label htmlFor={'login'}>Login</label>
-      <Input type="text" name={'login'} onChange={handleChange}/>
+      <Input type="text" name={'login'} onChange={handleChange} placeholder={'admin'}/>
       <label htmlFor={'password'}>Password</label>
-      <Input type="text" name={'password'} onChange={handleChange} />
+      <Input type="text" name={'password'} onChange={handleChange} placeholder={'admin'}/>
       <Button type={'submit'} >Submit</Button>
     </form>
   )

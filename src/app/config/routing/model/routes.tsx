@@ -4,7 +4,6 @@ import {SignInPage} from "@/pages/sign-in";
 import {BrowsePage} from "@/pages/browse";
 import {NotFoundPage} from "@/pages/not-found";
 
-
 enum AppRoutes {
   HOME = "home",
   SIGN_IN = "sign-in",

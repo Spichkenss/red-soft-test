@@ -1,6 +1,6 @@
 .sidebar {
-    width: 250px;
+    width: var(--navbar-width);
     height: calc(100vh - var(--navbar-height));
     background: #282828;
-    padding: 1rem 1.5rem;
+    padding: 1rem 0.5rem;
 }

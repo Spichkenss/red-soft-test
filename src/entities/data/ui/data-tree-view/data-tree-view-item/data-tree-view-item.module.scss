@@ -1,0 +1,19 @@
+.treeItem {
+  margin-top: 0.6rem;
+
+  .trigger {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 0.2rem;
+
+    .indicator {
+      background: transparent;
+      outline: none;
+      border: none;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+  }
+}

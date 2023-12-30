@@ -1,5 +1,5 @@
-import {SignInForm} from "@/features/sign-in";
 import styles from './sign-in-page.module.scss'
+import {SignInForm} from "@/features/auth/sign-in";
 
 const SignInPage = () => {
   return (

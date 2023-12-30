@@ -1,22 +1,7 @@
-import {createContext, PropsWithChildren, useContext, useMemo} from "react";
-import {AuthContextValue} from "@/app/config/auth/model/types";
-import {useLocalStorage} from "@/shared/lib/hooks";
+import {createContext, useContext} from "react";
+import {AuthContextValue} from "./types";
 
-const AuthContext = createContext<AuthContextValue | null>(null);
-
-interface AuthContextProviderProps extends PropsWithChildren {}
-
-export const AuthProvider = ({children}: AuthContextProviderProps) => {
-  const [token, setToken] = useLocalStorage('token', null);
-
-  const memoizedContextValue = useMemo(() => ({token, setToken}), [setToken, token])
-
-  return (
-    <AuthContext.Provider value={memoizedContextValue}>
-      {children}
-    </AuthContext.Provider>
-  )
-}
+export const AuthContext = createContext<AuthContextValue | null>(null);
 
 export const useAuth = () => {
   const ctx = useContext(AuthContext);

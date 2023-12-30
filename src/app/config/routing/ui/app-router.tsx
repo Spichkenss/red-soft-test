@@ -1,12 +1,9 @@
 import {Route, Routes} from "react-router-dom";
-import {HomePage} from "@/pages/home";
-import {RoutePaths} from "@/app/config/routing/model/routes";
-import {ProtectedWrapper} from "@/app/config/routing/ui/wrappers/protected-wrapper";
-import {UnauthWrapper} from "@/app/config/routing/ui/wrappers/unauth-wrapper";
-import {BrowsePage} from "@/pages/browse";
-import {SignInPage} from "@/pages/sign-in";
 import {BrowseLayout} from "@/widgets/layouts/browse-layout";
 import {RootLayout} from '@/widgets/layouts/root-layout'
+import {BrowsePage, HomePage, SignInPage} from "@/pages";
+import {RoutePaths} from "../model/routes";
+import {ProtectedWrapper, UnauthWrapper} from "./wrappers";
 
 export const AppRouter = () => {
   return (
